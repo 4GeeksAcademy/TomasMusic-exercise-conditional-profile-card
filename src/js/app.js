@@ -1,3 +1,4 @@
+import { left, right } from "@popperjs/core";
 import "../style/index.css";
 
 /**
@@ -33,14 +34,31 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name == null ? "name" : variables.name} ${
+    variables.lastname == null ? "lastname" : variables.lastname
+  } </h1> 
+          <h2>${variables.role == null ? "role" : variables.role}
+          </h2>
+          <h3>${variables.city == null ? "city" : variables.city}, ${
+    variables.country == null ? "country" : variables.country
+  }</h3>
+          <ul class=${
+            variables.socialMediaPosition == right
+              ? "left"
+              : variables.socialMediaPosition
+          }
+            <li><a href="https://twitter.com/${
+              variables.twitter == null ? "twitter" : variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github == null ? "github" : variables.github
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/in/${
+              variables.linkedin == null ? "linkedin" : variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram == null ? "instagram" : variables.linkedin
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
